@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Cada sexta o Kelvin perde 1 real 🏀</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('e62eef92-c5c2-4b7b-b741-7672a47bbebb.jpg') no-repeat center center/cover;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+  }
+
+  h1 {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 5px black;
+  }
+
+  #basket {
+    width: 50px;
+    height: 50px;
+    background-color: orange;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 50px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  #score {
+    position: absolute;
+    top: 70px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    text-shadow: 2px 2px 5px black;
+  }
+</style>
+</head>
+<body>
+<h1>Cada sexta o Kelvin perde 1 real 🏀</h1>
+<div id="score">Pontuação: 0</div>
+<div id="basket"></div>
+
+<script>
+let basket = document.getElementById('basket');
+let scoreEl = document.getElementById('score');
+let score = 0;
+
+function moveBasket() {
+  // Move a seta para uma posição aleatória
+  const x = Math.random() * (window.innerWidth - 50);
+  const y = Math.random() * (window.innerHeight - 50);
+  basket.style.left = x + 'px';
+  basket.style.top = y + 'px';
+}
+
+basket.addEventListener('click', () => {
+  score++;
+  scoreEl.textContent = "Pontuação: " + score;
+  moveBasket();
+});
+
+// Move o basket inicialmente
+moveBasket();
+</script>
+</body>
+</html>
